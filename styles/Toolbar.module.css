@@ -12,3 +12,12 @@
 .main div:hover {
   color: rgb(168, 168, 168);
 }
+
+@media screen and (max-width: 515px) {
+  .main {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -39,3 +39,9 @@
   cursor: not-allowed;
   color: rgb(179, 179, 179);
 }
+
+@media screen and (max-width: 515px) {
+  .post {
+    width: 90%;
+  }
+}
