@@ -8,12 +8,12 @@ const EOM = ({ employee }) => {
     <div className='page-container'>
       <Toolbar />
       <div className={styles.main}>
-        <h1>Employee of The Month</h1>
+        <h1>Employees of The Month</h1>
         <div className={styles.employeeOfTheMonth}>
-          <h3>IB React</h3>
-          <h6>{employee.position}</h6>
-          <Image src="/me.jpg" alt='Employee of the month' width={250} height={250} />
-          <p>{employee.description}</p>
+          <h3>Our Posts Hunters</h3>
+          <h5>Camel engineers</h5>
+          <Image src="/vasko.jpg" alt='Employee of the month' width={250} height={250} />
+          <h4>Camel and Giraffe experts</h4>
         </div>
       </div>
     </div>

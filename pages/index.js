@@ -15,7 +15,7 @@ export default function Home() {
         <Toolbar />
         <div className={styles.main}>
           <h1>Bulgarian News App</h1>
-          <h3>Your one stop away from the latest news article</h3>
+          <h3>Your one stop away from the latest news articles</h3>
         </div>
       </div>
     </div>

@@ -7,12 +7,14 @@ const Toolbar = () => {
   return (
     <div className={styles.main}>
       <div onClick={() => router.push('/')}>Home</div>
-      <div onClick={() => router.push('/feed/1')}>Feed</div>
+      <div onClick={() => router.push('/feed/1')}>BGNews</div>
       <div onClick={() => router.push('/eom')}>EOM</div>
       <div
-        onClick={() => (window.location.href = 'https://twitter.com/igoreact')}
+        onClick={() =>
+          (window.location.href = 'https://weather.com/bg-BG/weather/today')
+        }
       >
-        Twitter
+        Weather
       </div>
     </div>
   )
