@@ -4,7 +4,7 @@ import Toolbar from '../../components/toolbar'
 
 const Feed = ({ pageNumber, articles }) => {
   const router = useRouter()
-  //console.log(articles, pageNumber);
+ 
 
   return (
     <div className='page-container'>
@@ -62,6 +62,9 @@ export const getServerSideProps = async (pageContext) => {
       },
     }
   }
+
+  // `https://newsapi.org/v2/top-headlines?country=bg&pageSize=5&page=${pageNumber}`,
+  //`https://newsapi.org/v2/everything?q=animal&pageSize=5&page=${pageNumber}`,
 
   const apiResponse = await fetch(
     `https://newsapi.org/v2/top-headlines?country=bg&pageSize=5&page=${pageNumber}`,
