@@ -10,7 +10,7 @@ const EOM = ({ employee }) => {
       <div className={styles.main}>
         <h1>Employee of The Month</h1>
         <div className={styles.employeeOfTheMonth}>
-          <h3>{employee.name}</h3>
+          <h3>IB React</h3>
           <h6>{employee.position}</h6>
           <Image src="/me.jpg" alt='Employee of the month' width={250} height={250} />
           <p>{employee.description}</p>
