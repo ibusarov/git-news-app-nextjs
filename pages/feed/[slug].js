@@ -1,14 +1,14 @@
 import styles from '../../styles/Feed.module.css'
 import { useRouter } from 'next/router'
 import Toolbar from '../../components/toolbar'
+// import { responseSymbol } from 'next/dist/server/web/spec-compliant/fetch-event'
 
 const Feed = ({ pageNumber, articles }) => {
   const router = useRouter()
- 
 
   return (
     <div className='page-container'>
-        <Toolbar />
+      <Toolbar />
       <div className={styles.main}>
         {articles?.map((article, index) => (
           <div key={index} className={styles.post}>
@@ -33,7 +33,11 @@ const Feed = ({ pageNumber, articles }) => {
         >
           Previous Page
         </div>
-        <div>{'<< '}{pageNumber}{' >>'}</div>
+        <div>
+          {'<< '}
+          {pageNumber}
+          {' >>'}
+        </div>
         <div
           onClick={() => {
             if (pageNumber < 5) {
@@ -53,11 +57,12 @@ const Feed = ({ pageNumber, articles }) => {
 
 export const getServerSideProps = async (pageContext) => {
   const pageNumber = pageContext.query.slug
+  console.log(pageNumber)
 
   if (!pageNumber || pageNumber < 0 || pageNumber > 5) {
     return {
       props: {
-        article: [],
+        articles: [],
         pageNumber: 1,
       },
     }
@@ -74,12 +79,23 @@ export const getServerSideProps = async (pageContext) => {
       },
     }
   )
+    .then((res) => {
+      if (!res.ok) {
+        return null
+      }
+      return res.json()
+    })
 
-  const apiJson = await apiResponse.json()
+    .catch((err) => console.error(err))
 
-  //console.log(apiJson)
+  if (apiResponse === null) {
+    return {
+      props: {},
+      notFound: true,
+    }
+  }
 
-  const { articles } = apiJson
+  const { articles } = apiResponse
 
   return {
     props: {
