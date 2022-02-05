@@ -14,8 +14,8 @@ export default function Home() {
       <div className='page-container'>
         <Toolbar />
         <div className={styles.main}>
-          <h1>Next JS News App</h1>
-          <h3>Your one stop shop for the latest news article</h3>
+          <h1>Bulgarian News App</h1>
+          <h3>Your one stop away from the latest news article</h3>
         </div>
       </div>
     </div>
