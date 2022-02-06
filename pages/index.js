@@ -16,6 +16,12 @@ export default function Home() {
         <div className={styles.main}>
           <h1>Bulgarian News App</h1>
           <h3>Your one stop away from the latest news articles</h3>
+          <Image className={styles.image}
+            src='/newsfront.jpg'
+            alt='Front news'
+            width={250}
+            height={250}
+          />
         </div>
       </div>
     </div>
