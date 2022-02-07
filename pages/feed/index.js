@@ -1,9 +1,10 @@
 import styles from '../../styles/Feed.module.css'
 import { useRouter } from 'next/router'
 import Toolbar from '../../components/toolbar'
+import Footer from '../../components/footer'
 // import { responseSymbol } from 'next/dist/server/web/spec-compliant/fetch-event'
 
-const Feed = ({ pageNumber, articles }) => {
+const Feed = ({ articles }) => {
   const router = useRouter()
 
   return (
@@ -19,8 +20,12 @@ const Feed = ({ pageNumber, articles }) => {
             {!!article.urlToImage && <img src={article.urlToImage} alt='' />}
           </div>
         ))}
+        <br />
+        <br />
+        <br />
+        
       </div>
-      <div className={styles.paginator}>
+      {/* <div className={styles.paginator}>
         <div
           onClick={() => {
             if (pageNumber > 1) {
@@ -50,29 +55,30 @@ const Feed = ({ pageNumber, articles }) => {
         >
           Next Page
         </div>
-      </div>
+      </div> */}
+      <Footer />
     </div>
   )
 }
 
 export const getServerSideProps = async (pageContext) => {
-  const pageNumber = pageContext.query.slug
-  console.log(pageNumber)
+  // const pageNumber = pageContext.query.slug
+  // console.log(pageNumber)
 
-  if (!pageNumber || pageNumber < 0 || pageNumber > 5) {
-    return {
-      props: {
-        articles: [],
-        pageNumber: 1,
-      },
-    }
-  }
+  // if (!pageNumber || pageNumber < 0 || pageNumber > 5) {
+  //   return {
+  //     props: {
+  //       articles: [],
+  //       pageNumber: 1,
+  //     },
+  //   }
+  // }
 
   // `https://newsapi.org/v2/top-headlines?country=bg&pageSize=5&page=${pageNumber}`,
   //`https://newsapi.org/v2/everything?q=animal&pageSize=5&page=${pageNumber}`,
 
   const apiResponse = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=bg&pageSize=5&page=${pageNumber}`,
+    `https://newsapi.org/v2/top-headlines?country=bg&pageSize=30`,
     {
       headers: {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_NEWS_KEY}`,
@@ -100,7 +106,7 @@ export const getServerSideProps = async (pageContext) => {
   return {
     props: {
       articles: articles,
-      pageNumber: Number.parseInt(pageNumber),
+      // pageNumber: Number.parseInt(pageNumber),
     },
   }
 }
