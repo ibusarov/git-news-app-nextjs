@@ -8,17 +8,20 @@ const Toolbar = () => {
     <div className={styles.main}>
       <div onClick={() => router.push('/')}>Home</div>
       <div onClick={() => router.push('/feed')}>BGNEWS</div>
+      {/* <div onClick={() => router.push('/animals')}>Animal</div> */}
 
       <div
         onClick={() =>
-          (window.location.href = 'https://weather.com/bg-BG/weather/today')
+          (window.location.href =
+            'https://www.wildcamels.com/great-gobi-kids-corner/')
         }
       >
-        Weather
+        Camels
       </div>
       <div onClick={() => router.push('/eom')}>Awards</div>
     </div>
   )
 }
+
 
 export default Toolbar

@@ -4,4 +4,5 @@ module.exports = {
     domains: ['pbs.twimg.com'],
     domains: ['www.the-sun.com'],
   },
+  
 }
